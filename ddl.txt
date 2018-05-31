@@ -1,0 +1,92 @@
+-- Project Name : demo
+-- Date/Time    : 2018/05/31 18:04:35
+-- Author       : smallflyelephant666
+-- RDBMS Type   : MySQL
+-- Application  : A5:SQL Mk-2
+
+-- 汇率发布时间
+drop table if exists NEW_ENTITY1 cascade;
+
+create table NEW_ENTITY1 (
+  ID BIGINT not null comment '主键'
+  , PUBLICTION_ID VARCHAR(10) comment '汇率发布ID'
+  , CURRENCY_ID VARCHAR(20) comment '货币ID'
+  , TTS DECIMAL(3,2) comment 'TTS'
+  , TTB DECIMAL(3,2) comment 'TTB'
+  , TTM DECIMAL(3,2) comment 'TTM'
+  , DEL_FLAG TINYINT not null comment '删除标志'
+  , VER_NO INT not null comment '版本号'
+  , CREATED_BY BIGINT not null comment '作成者ID'
+  , CREATOR VARCHAR(20) comment '作成者名'
+  , UPDATED_BY BIGINT not null comment '更新者'
+  , UPDATER VARCHAR(20) comment '更新者名'
+  , CREATE_TIME BIGINT not null comment '作成时间'
+  , CREATE_TIME_STR VARCHAR(20) comment '作成时间文字表示'
+  , UPDATE_TIME BIGINT not null comment '更新时间'
+  , UPDATE_TIME_STR VARCHAR(20) comment '更新时间文字表示'
+  , constraint NEW_ENTITY1_PKC primary key (ID)
+) comment '汇率发布时间' ;
+
+-- 汇率发布时间
+drop table if exists TBL_RATE_PUBLICTION cascade;
+
+create table TBL_RATE_PUBLICTION (
+  ID BIGINT not null comment '主键'
+  , PUBLICTION_DATE VARCHAR(10) comment '发布日'
+  , PUBLICTION_DATETIME VARCHAR(20) comment '发布日时'
+  , DEL_FLAG TINYINT not null comment '删除标志'
+  , VER_NO INT not null comment '版本号'
+  , CREATED_BY BIGINT not null comment '作成者ID'
+  , CREATOR VARCHAR(20) comment '作成者名'
+  , UPDATED_BY BIGINT not null comment '更新者'
+  , UPDATER VARCHAR(20) comment '更新者名'
+  , CREATE_TIME BIGINT not null comment '作成时间'
+  , CREATE_TIME_STR VARCHAR(20) comment '作成时间文字表示'
+  , UPDATE_TIME BIGINT not null comment '更新时间'
+  , UPDATE_TIME_STR VARCHAR(20) comment '更新时间文字表示'
+  , constraint TBL_RATE_PUBLICTION_PKC primary key (ID)
+) comment '汇率发布时间' ;
+
+-- 软件升级信息
+drop table if exists tbl_soft_version cascade;
+
+create table tbl_soft_version (
+  ID BIGINT not null comment '主键'
+  , soft_id BIGINT comment '软件ID'
+  , version_code VARCHAR(20) comment '版本号'
+  , version_info varchar(1000) comment '更新内容'
+  , version_file_url varchar(200) comment '更新文件URL'
+  , release_date varchar(10) comment '更新时间'
+  , DEL_FLAG TINYINT not null comment '删除标志'
+  , VER_NO INT not null comment '版本号'
+  , CREATED_BY BIGINT not null comment '作成者ID'
+  , CREATOR VARCHAR(20) comment '作成者名'
+  , UPDATED_BY BIGINT not null comment '更新者'
+  , UPDATER VARCHAR(20) comment '更新者名'
+  , CREATE_TIME BIGINT not null comment '作成时间'
+  , CREATE_TIME_STR VARCHAR(20) comment '作成时间文字表示'
+  , UPDATE_TIME BIGINT not null comment '更新时间'
+  , UPDATE_TIME_STR VARCHAR(20) comment '更新时间文字表示'
+  , constraint tbl_soft_version_PKC primary key (ID)
+) comment '软件升级信息' ;
+
+-- 币种信息
+drop table if exists TBL_CURRENCY cascade;
+
+create table TBL_CURRENCY (
+  ID BIGINT not null comment '主键'
+  , CODE VARCHAR(3) comment '编码'
+  , NAME_EN VARCHAR(100) comment '货币名-英'
+  , NAME_JP VARCHAR(100) comment '货币名-日'
+  , DEL_FLAG TINYINT not null comment '删除标志'
+  , VER_NO INT not null comment '版本号'
+  , CREATED_BY BIGINT not null comment '作成者ID'
+  , CREATOR VARCHAR(20) comment '作成者名'
+  , UPDATED_BY BIGINT not null comment '更新者'
+  , UPDATER VARCHAR(20) comment '更新者名'
+  , CREATE_TIME BIGINT not null comment '作成时间'
+  , CREATE_TIME_STR VARCHAR(20) comment '作成时间文字表示'
+  , UPDATE_TIME BIGINT not null comment '更新时间'
+  , UPDATE_TIME_STR VARCHAR(20) comment '更新时间文字表示'
+  , constraint TBL_CURRENCY_PKC primary key (ID)
+) comment '币种信息' ;

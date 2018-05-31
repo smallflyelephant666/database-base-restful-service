@@ -1,0 +1,125 @@
+﻿# A5:ER FORMAT:11
+# A5:ER ENCODING:UTF8
+# A5:ER Mk-1 Copyright (C)2007 m.matsubara
+# A5:SQL Mk-2 Copyright (C)1997 m.matsubara
+#  http://www.wind.sannet.ne.jp/m_matsu/developer/a5m2/
+
+[Manager]
+ProjectName=demo
+Author=smallflyelephant666
+MaxEntityRowShow=1000
+ReadOnlyRecommend=0
+Page=基础数据
+PageInfo="基础数据",7,"A3Landscape",$FFFFFF
+LogicalView=1
+DecodeDomain=0
+ViewModePageIndividually=1
+ViewMode=7
+ViewFormat=0
+UseNondependenceDashLine=0
+FontName=Tahoma
+FontSize=12
+PaperSize=A4Landscape
+HeaderLeft=
+HeaderCenter=
+HeaderRight=
+FooterLeft=
+FooterCenter=
+FooterRight=
+ShowPageoutRelation=1
+RDBMSType=5
+RDBMSTypeName=MySQL
+GenerateDropTableStatement=1
+DropTableIfExists=1
+CommonField="删除标志","DEL_FLAG","TINYINT","NOT NULL",,"","",$FFFFFFFF
+CommonField="版本号","VER_NO","INT","NOT NULL",,"","",$FFFFFFFF
+CommonField="作成者ID","CREATED_BY","BIGINT","NOT NULL",,"","",$FFFFFFFF
+CommonField="作成者名","CREATOR","VARCHAR(20)",,,"","",$FFFFFFFF
+CommonField="更新者","UPDATED_BY","BIGINT","NOT NULL",,"","",$FFFFFFFF
+CommonField="更新者名","UPDATER","VARCHAR(20)",,,"","",$FFFFFFFF
+CommonField="作成时间","CREATE_TIME","BIGINT","NOT NULL",,"","",$FFFFFFFF
+CommonField="作成时间文字表示","CREATE_TIME_STR","VARCHAR(20)",,,"","",$FFFFFFFF
+CommonField="更新时间","UPDATE_TIME","BIGINT","NOT NULL",,"","",$FFFFFFFF
+CommonField="更新时间文字表示","UPDATE_TIME_STR","VARCHAR(20)",,,"","",$FFFFFFFF
+DefaultPkName=%0:s_PKC
+DefaultPkIndexName=%0:s_PKI
+DefaultIndexName=%0:s_IX%1:d
+DefaultFkName=%0:s_FK%1:d
+SqlSeparator=0
+ShowTag=1
+ShowCommonAttributes=0
+
+[Entity]
+PName=NEW_ENTITY1
+LName=汇率发布时间
+Comment=
+TableOption=
+Page=基础数据
+Left=2600
+Top=100
+Field="主键","ID","BIGINT","NOT NULL",0,"","",$FFFFFFFF,""
+Field="汇率发布ID","PUBLICTION_ID","VARCHAR(10)",,,"","",$FFFFFFFF,""
+Field="货币ID","CURRENCY_ID","VARCHAR(20)",,,"","",$FFFFFFFF,""
+Field="TTS","TTS","DECIMAL(3,2)",,,"","",$FFFFFFFF,""
+Field="TTB","TTB","DECIMAL(3,2)",,,"","",$FFFFFFFF,""
+Field="TTM","TTM","DECIMAL(3,2)",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20180531180400
+Position="基础数据",2600,100
+
+[Entity]
+PName=TBL_RATE_PUBLICTION
+LName=汇率发布时间
+Comment=
+TableOption=
+Page=基础数据
+Left=1300
+Top=100
+Field="主键","ID","BIGINT","NOT NULL",0,"","",$FFFFFFFF,""
+Field="发布日","PUBLICTION_DATE","VARCHAR(10)",,,"","",$FFFFFFFF,""
+Field="发布日时","PUBLICTION_DATETIME","VARCHAR(20)",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20180531175232
+Position="基础数据",1300,100
+
+[Entity]
+PName=tbl_soft_version
+LName=软件升级信息
+Comment=
+TableOption=
+Page=基础数据
+Left=200
+Top=2100
+Field="主键","ID","BIGINT","NOT NULL",0,"","",$FFFFFFFF,""
+Field="软件ID","soft_id","BIGINT",,,"","",$FFFFFFFF,""
+Field="版本号","version_code","VARCHAR(20)",,,"","",$FFFFFFFF,""
+Field="更新内容","version_info","varchar(1000)",,,"","",$FFFFFFFF,""
+Field="更新文件URL","version_file_url","varchar(200)",,,"","",$FFFFFFFF,""
+Field="更新时间","release_date","varchar(10)",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20180509162426
+Position="基础数据",200,2100
+
+[Entity]
+PName=TBL_CURRENCY
+LName=币种信息
+Comment=
+TableOption=
+Page=基础数据
+Left=200
+Top=100
+Field="主键","ID","BIGINT","NOT NULL",0,"","",$FFFFFFFF,""
+Field="编码","CODE","VARCHAR(3)",,,"","",$FFFFFFFF,""
+Field="货币名-英","NAME_EN","VARCHAR(100)",,,"","",$FFFFFFFF,""
+Field="货币名-日","NAME_JP","VARCHAR(100)",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20180531180309
+Position="基础数据",200,100
