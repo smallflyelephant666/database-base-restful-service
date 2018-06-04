@@ -58,7 +58,7 @@ Page=基础数据
 Left=2600
 Top=100
 Field="主键","ID","BIGINT","NOT NULL",0,"","",$FFFFFFFF,""
-Field="汇率发布ID","PUBLICTION_ID","VARCHAR(10)",,,"","",$FFFFFFFF,""
+Field="汇率发布ID","PUBLICATION_ID","VARCHAR(10)",,,"","",$FFFFFFFF,""
 Field="货币ID","CURRENCY_ID","VARCHAR(20)",,,"","",$FFFFFFFF,""
 Field="TTS","TTS","DECIMAL(3,2)",,,"","",$FFFFFFFF,""
 Field="TTB","TTB","DECIMAL(3,2)",,,"","",$FFFFFFFF,""
@@ -66,11 +66,11 @@ Field="TTM","TTM","DECIMAL(3,2)",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20180604143802
+ModifiedDateTime=20180604163003
 Position="基础数据",2600,100
 
 [Entity]
-PName=TBL_RATE_PUBLICTION
+PName=TBL_RATE_PUBLICATION
 LName=汇率发布时间
 Comment=
 TableOption=
@@ -78,12 +78,12 @@ Page=基础数据
 Left=1300
 Top=100
 Field="主键","ID","BIGINT","NOT NULL",0,"","",$FFFFFFFF,""
-Field="发布日","PUBLICTION_DATE","VARCHAR(10)",,,"","",$FFFFFFFF,""
-Field="发布日时","PUBLICTION_DATETIME","VARCHAR(20)",,,"","",$FFFFFFFF,""
+Field="发布日","PUBLICATION_DATE","VARCHAR(10)",,,"","",$FFFFFFFF,""
+Field="发布日时","PUBLICATION_DATETIME","VARCHAR(20)",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20180531175232
+ModifiedDateTime=20180604162956
 Position="基础数据",1300,100
 
 [Entity]

@@ -1,5 +1,5 @@
 -- project name : demo
--- date/time    : 2018/06/04 14:38:21
+-- date/time    : 2018/06/04 16:30:10
 -- author       : smallflyelephant666
 -- rdbms type   : mysql
 -- application  : a5:sql mk-2
@@ -9,7 +9,7 @@ drop table if exists tbl_rate_info cascade;
 
 create table tbl_rate_info (
   id bigint not null comment '主键'
-  , publiction_id varchar(10) comment '汇率发布id'
+  , publication_id varchar(10) comment '汇率发布id'
   , currency_id varchar(20) comment '货币id'
   , tts decimal(3,2) comment 'tts'
   , ttb decimal(3,2) comment 'ttb'
@@ -28,12 +28,12 @@ create table tbl_rate_info (
 ) comment '汇率情报' ;
 
 -- 汇率发布时间
-drop table if exists tbl_rate_publiction cascade;
+drop table if exists tbl_rate_publication cascade;
 
-create table tbl_rate_publiction (
+create table tbl_rate_publication (
   id bigint not null comment '主键'
-  , publiction_date varchar(10) comment '发布日'
-  , publiction_datetime varchar(20) comment '发布日时'
+  , publication_date varchar(10) comment '发布日'
+  , publication_datetime varchar(20) comment '发布日时'
   , del_flag tinyint not null comment '删除标志'
   , ver_no int not null comment '版本号'
   , created_by bigint not null comment '作成者id'
@@ -44,7 +44,7 @@ create table tbl_rate_publiction (
   , create_time_str varchar(20) comment '作成时间文字表示'
   , update_time bigint not null comment '更新时间'
   , update_time_str varchar(20) comment '更新时间文字表示'
-  , constraint tbl_rate_publiction_pkc primary key (id)
+  , constraint tbl_rate_publication_pkc primary key (id)
 ) comment '汇率发布时间' ;
 
 -- 币种信息
