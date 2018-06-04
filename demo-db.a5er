@@ -50,8 +50,8 @@ ShowTag=1
 ShowCommonAttributes=0
 
 [Entity]
-PName=NEW_ENTITY1
-LName=汇率发布时间
+PName=TBL_RATE_INFO
+LName=汇率情报
 Comment=
 TableOption=
 Page=基础数据
@@ -66,7 +66,7 @@ Field="TTM","TTM","DECIMAL(3,2)",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20180531180400
+ModifiedDateTime=20180604143802
 Position="基础数据",2600,100
 
 [Entity]
@@ -85,26 +85,6 @@ Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20180531175232
 Position="基础数据",1300,100
-
-[Entity]
-PName=tbl_soft_version
-LName=软件升级信息
-Comment=
-TableOption=
-Page=基础数据
-Left=200
-Top=2100
-Field="主键","ID","BIGINT","NOT NULL",0,"","",$FFFFFFFF,""
-Field="软件ID","soft_id","BIGINT",,,"","",$FFFFFFFF,""
-Field="版本号","version_code","VARCHAR(20)",,,"","",$FFFFFFFF,""
-Field="更新内容","version_info","varchar(1000)",,,"","",$FFFFFFFF,""
-Field="更新文件URL","version_file_url","varchar(200)",,,"","",$FFFFFFFF,""
-Field="更新时间","release_date","varchar(10)",,,"","",$FFFFFFFF,""
-EffectMode=None
-Color=$000000
-BkColor=$FFFFFF
-ModifiedDateTime=20180509162426
-Position="基础数据",200,2100
 
 [Entity]
 PName=TBL_CURRENCY

@@ -1,13 +1,13 @@
 -- project name : demo
--- date/time    : 2018/05/31 18:04:35
+-- date/time    : 2018/06/04 14:38:21
 -- author       : smallflyelephant666
 -- rdbms type   : mysql
 -- application  : a5:sql mk-2
 
--- 汇率发布时间
-drop table if exists new_entity1 cascade;
+-- 汇率情报
+drop table if exists tbl_rate_info cascade;
 
-create table new_entity1 (
+create table tbl_rate_info (
   id bigint not null comment '主键'
   , publiction_id varchar(10) comment '汇率发布id'
   , currency_id varchar(20) comment '货币id'
@@ -24,8 +24,8 @@ create table new_entity1 (
   , create_time_str varchar(20) comment '作成时间文字表示'
   , update_time bigint not null comment '更新时间'
   , update_time_str varchar(20) comment '更新时间文字表示'
-  , constraint new_entity1_pkc primary key (id)
-) comment '汇率发布时间' ;
+  , constraint tbl_rate_info_pkc primary key (id)
+) comment '汇率情报' ;
 
 -- 汇率发布时间
 drop table if exists tbl_rate_publiction cascade;
@@ -46,29 +46,6 @@ create table tbl_rate_publiction (
   , update_time_str varchar(20) comment '更新时间文字表示'
   , constraint tbl_rate_publiction_pkc primary key (id)
 ) comment '汇率发布时间' ;
-
--- 软件升级信息
-drop table if exists tbl_soft_version cascade;
-
-create table tbl_soft_version (
-  id bigint not null comment '主键'
-  , soft_id bigint comment '软件id'
-  , version_code varchar(20) comment '版本号'
-  , version_info varchar(1000) comment '更新内容'
-  , version_file_url varchar(200) comment '更新文件url'
-  , release_date varchar(10) comment '更新时间'
-  , del_flag tinyint not null comment '删除标志'
-  , ver_no int not null comment '版本号'
-  , created_by bigint not null comment '作成者id'
-  , creator varchar(20) comment '作成者名'
-  , updated_by bigint not null comment '更新者'
-  , updater varchar(20) comment '更新者名'
-  , create_time bigint not null comment '作成时间'
-  , create_time_str varchar(20) comment '作成时间文字表示'
-  , update_time bigint not null comment '更新时间'
-  , update_time_str varchar(20) comment '更新时间文字表示'
-  , constraint tbl_soft_version_pkc primary key (id)
-) comment '软件升级信息' ;
 
 -- 币种信息
 drop table if exists tbl_currency cascade;
