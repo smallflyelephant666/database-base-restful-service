@@ -1,8 +1,31 @@
 -- project name : demo
--- date/time    : 2018/06/04 16:30:10
+-- date/time    : 2018/06/05 15:17:49
 -- author       : smallflyelephant666
 -- rdbms type   : mysql
 -- application  : a5:sql mk-2
+
+-- 数据履历
+drop table if exists sys_history_data cascade;
+
+create table sys_history_data (
+  id bigint not null comment '主键'
+  , table_name varchar(50) comment '数据表'
+  , record_id bigint comment '数据主键'
+  , operation varchar(1) comment '操作'
+  , content_base text comment '前内容'
+  , content_new text comment '后内容'
+  , del_flag tinyint not null comment '删除标志'
+  , ver_no int not null comment '版本号'
+  , created_by bigint not null comment '作成者id'
+  , creator varchar(20) comment '作成者名'
+  , updated_by bigint not null comment '更新者'
+  , updater varchar(20) comment '更新者名'
+  , create_time bigint not null comment '作成时间'
+  , create_time_str varchar(20) comment '作成时间文字表示'
+  , update_time bigint not null comment '更新时间'
+  , update_time_str varchar(20) comment '更新时间文字表示'
+  , constraint sys_history_data_pkc primary key (id)
+) comment '数据履历' ;
 
 -- 汇率情报
 drop table if exists tbl_rate_info cascade;

@@ -50,6 +50,26 @@ ShowTag=1
 ShowCommonAttributes=0
 
 [Entity]
+PName=SYS_HISTORY_DATA
+LName=数据履历
+Comment=
+TableOption=
+Page=基础数据
+Left=1400
+Top=1200
+Field="主键","ID","BIGINT","NOT NULL",0,"","",$FFFFFFFF,""
+Field="数据表","TABLE_NAME","VARCHAR(50)",,,"","",$FFFFFFFF,""
+Field="数据主键","RECORD_ID","BIGINT",,,"","",$FFFFFFFF,""
+Field="操作","OPERATION","VARCHAR(1)",,,"","",$FFFFFFFF,""
+Field="前内容","CONTENT_BASE","TEXT",,,"","",$FFFFFFFF,""
+Field="后内容","CONTENT_NEW","TEXT",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20180605151742
+Position="基础数据",1400,1200
+
+[Entity]
 PName=TBL_RATE_INFO
 LName=汇率情报
 Comment=
