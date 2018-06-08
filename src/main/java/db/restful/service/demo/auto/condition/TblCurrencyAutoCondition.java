@@ -410,4 +410,10 @@ public class TblCurrencyAutoCondition implements Serializable{
 	public String updateTimeStrNotLike;
 
 
+
+	public String orderBy;
+
+	public Integer pageSize;
+
+	public Integer pageNo;
 }

@@ -1,10 +1,10 @@
 package db.restful.service.demo.auto.service.impl;
 
+import java.io.IOException;
 import java.util.List;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import db.restful.service.demo.auto.model.SysHistoryData;
-import db.restful.service.demo.auto.service.SysHistoryDataBaseService;
+import db.restful.service.demo.history.model.SysHistoryData;
+import db.restful.service.demo.history.service.SysHistoryDataBaseService;
 import db.restful.service.demo.utils.JsonUtils;
 import org.seasar.doma.jdbc.SelectOptions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +18,7 @@ import db.restful.service.demo.utils.DateTimeUtils;
 import db.restful.service.demo.utils.IdGenUtils;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 /**
  * 
@@ -33,11 +34,11 @@ public class TblRatePublicationBaseServiceImpl implements TblRatePublicationBase
 	@Autowired
     SysHistoryDataBaseService sysHistoryDataBaseService;
 
-	private String tableName = "tbl_currency";
+	private String tableName = "tbl_rate_publication";
 	
 	@Override
 	@Transactional(propagation= Propagation.REQUIRED,rollbackFor=Exception.class)
-	public TblRatePublication insert(TblRatePublication dbModel) throws JsonProcessingException {
+	public TblRatePublication insert(TblRatePublication dbModel) throws IOException {
 		if(dbModel.getId()==null) {
 			dbModel.setId(IdGenUtils.getId());
 		}
@@ -84,7 +85,9 @@ public class TblRatePublicationBaseServiceImpl implements TblRatePublicationBase
 
 	@Override
 	@Transactional(propagation= Propagation.REQUIRED,rollbackFor=Exception.class)
-	public TblRatePublication update(TblRatePublication dbModel) throws JsonProcessingException {
+	public TblRatePublication update(TblRatePublication dbModel) throws IOException {
+		String contentBase = JsonUtils.mapperObj.writeValueAsString(selectById(dbModel.getId()));
+		
 		if(dbModel.getUpdatedBy()==null) {
 			dbModel.setUpdatedBy(0L);
 			dbModel.setUpdater("sys");
@@ -101,7 +104,7 @@ public class TblRatePublicationBaseServiceImpl implements TblRatePublicationBase
         sysHistoryData.setTableName(tableName);
         sysHistoryData.setOperation("U");
         sysHistoryData.setRecordId(dbModel.getId());
-        sysHistoryData.setContentBase(null);
+        sysHistoryData.setContentBase(contentBase);
         sysHistoryData.setContentNew(JsonUtils.mapperObj.writeValueAsString(dbModel));
         sysHistoryData.setCreatedBy(dbModel.getUpdatedBy());
         sysHistoryData.setCreator(dbModel.getUpdater());
@@ -119,7 +122,9 @@ public class TblRatePublicationBaseServiceImpl implements TblRatePublicationBase
 	
 	@Override
 	@Transactional(propagation= Propagation.REQUIRED,rollbackFor=Exception.class)
-    public TblRatePublication updateExcludeNull(TblRatePublication dbModel) throws JsonProcessingException {
+    public TblRatePublication updateExcludeNull(TblRatePublication dbModel) throws IOException {
+    	String contentBase = JsonUtils.mapperObj.writeValueAsString(selectById(dbModel.getId()));
+    	
         if(dbModel.getUpdatedBy()==null) {
             dbModel.setUpdatedBy(0L);
             dbModel.setUpdater("sys");
@@ -136,8 +141,8 @@ public class TblRatePublicationBaseServiceImpl implements TblRatePublicationBase
         sysHistoryData.setTableName(tableName);
         sysHistoryData.setOperation("UE");
         sysHistoryData.setRecordId(dbModel.getId());
-        sysHistoryData.setContentBase(null);
-        sysHistoryData.setContentNew(JsonUtils.mapperObj.writeValueAsString(dbModel));
+        sysHistoryData.setContentBase(contentBase);
+        sysHistoryData.setContentNew(JsonUtils.mapperObj.writeValueAsString(selectById(dbModel.getId())));
         sysHistoryData.setCreatedBy(dbModel.getUpdatedBy());
         sysHistoryData.setCreator(dbModel.getUpdater());
         sysHistoryData.setCreateTime(now);
@@ -150,12 +155,14 @@ public class TblRatePublicationBaseServiceImpl implements TblRatePublicationBase
 
         sysHistoryDataBaseService.insert(sysHistoryData);
         
-        return dbModel;
+        return JsonUtils.mapperObj.readValue(contentBase,TblRatePublication.class);
     }
 
 	@Override
 	@Transactional(propagation= Propagation.REQUIRED,rollbackFor=Exception.class)
-	public TblRatePublication delete(TblRatePublication dbModel) throws JsonProcessingException {
+	public TblRatePublication delete(TblRatePublication dbModel) throws IOException {
+		String contentBase = JsonUtils.mapperObj.writeValueAsString(selectById(dbModel.getId()));
+		
 		dao.delete(dbModel);
 		
         Long now = DateTimeUtils.getCurrentTimeMillis();
@@ -165,7 +172,7 @@ public class TblRatePublicationBaseServiceImpl implements TblRatePublicationBase
         sysHistoryData.setTableName(tableName);
         sysHistoryData.setOperation("D");
         sysHistoryData.setRecordId(dbModel.getId());
-        sysHistoryData.setContentBase(null);
+        sysHistoryData.setContentBase(contentBase);
         sysHistoryData.setContentNew(null);
         sysHistoryData.setCreatedBy(dbModel.getCreatedBy());
         sysHistoryData.setCreator(dbModel.getCreator());
@@ -179,7 +186,7 @@ public class TblRatePublicationBaseServiceImpl implements TblRatePublicationBase
 
         sysHistoryDataBaseService.insert(sysHistoryData);
 		
-		return dbModel;
+		return JsonUtils.mapperObj.readValue(contentBase,TblRatePublication.class);
 	}
 
 	@Override
@@ -195,11 +202,17 @@ public class TblRatePublicationBaseServiceImpl implements TblRatePublicationBase
 	
 	@Override
     public List<TblRatePublication> selectByEntity(TblRatePublicationAutoCondition searchEntity, String orderBy) {
+        if(!StringUtils.isEmpty(orderBy)){
+            orderBy="order by " + orderBy;
+        }
         return dao.selectByEntity(searchEntity,orderBy);
     }
 
     @Override
     public List<TblRatePublication> selectByEntity(TblRatePublicationAutoCondition searchEntity, String orderBy, SelectOptions selectOptions) {
+        if(!StringUtils.isEmpty(orderBy)){
+            orderBy="order by " + orderBy;
+        }
         return dao.selectByEntity(searchEntity,orderBy,selectOptions);
     }
 

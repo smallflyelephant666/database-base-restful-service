@@ -1,10 +1,10 @@
 package db.restful.service.demo.auto.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import db.restful.service.demo.auto.condition.TblRateInfoAutoCondition;
 import db.restful.service.demo.auto.model.TblRateInfo;
 import org.seasar.doma.jdbc.SelectOptions;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -15,13 +15,13 @@ import java.util.List;
 
 public interface TblRateInfoBaseService {
 	
-	TblRateInfo insert(TblRateInfo dbModel)  throws JsonProcessingException;
+	TblRateInfo insert(TblRateInfo dbModel)  throws IOException;
 
-    TblRateInfo update(TblRateInfo dbModel)  throws JsonProcessingException;
+    TblRateInfo update(TblRateInfo dbModel)  throws IOException;
     
-    TblRateInfo updateExcludeNull(TblRateInfo dbModel)  throws JsonProcessingException;
+    TblRateInfo updateExcludeNull(TblRateInfo dbModel)  throws IOException;
 
-    TblRateInfo delete(TblRateInfo dbModel)  throws JsonProcessingException;
+    TblRateInfo delete(TblRateInfo dbModel)  throws IOException;
 
     TblRateInfo selectById(Long id);
     

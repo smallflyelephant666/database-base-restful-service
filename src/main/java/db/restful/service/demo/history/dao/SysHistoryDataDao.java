@@ -1,4 +1,4 @@
-package db.restful.service.demo.auto.dao;
+package db.restful.service.demo.history.dao;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.seasar.doma.Update;
 import org.seasar.doma.boot.ConfigAutowireable;
 import org.seasar.doma.jdbc.SelectOptions;
 
-import db.restful.service.demo.auto.model.SysHistoryData;
-import db.restful.service.demo.auto.condition.SysHistoryDataAutoCondition;
+import db.restful.service.demo.history.model.SysHistoryData;
+import db.restful.service.demo.history.condition.SysHistoryDataAutoCondition;
 /**
  * 
  * 作成者: auto-gen

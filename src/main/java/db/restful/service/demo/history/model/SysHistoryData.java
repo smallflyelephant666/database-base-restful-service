@@ -1,4 +1,4 @@
-package db.restful.service.demo.auto.model;
+package db.restful.service.demo.history.model;
 
 import java.io.Serializable;
 

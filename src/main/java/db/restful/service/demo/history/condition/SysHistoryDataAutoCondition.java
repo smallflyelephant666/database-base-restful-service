@@ -1,4 +1,4 @@
-package db.restful.service.demo.auto.condition;
+package db.restful.service.demo.history.condition;
 
 import java.io.Serializable;
 
@@ -466,4 +466,10 @@ public class SysHistoryDataAutoCondition implements Serializable{
 	public String updateTimeStrNotLike;
 
 
+
+	public String orderBy;
+
+	public Integer pageSize;
+
+	public Integer pageNo;
 }

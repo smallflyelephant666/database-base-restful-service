@@ -1,10 +1,10 @@
 package db.restful.service.demo.auto.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import db.restful.service.demo.auto.condition.TblCurrencyAutoCondition;
 import db.restful.service.demo.auto.model.TblCurrency;
 import org.seasar.doma.jdbc.SelectOptions;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -15,13 +15,13 @@ import java.util.List;
 
 public interface TblCurrencyBaseService {
 	
-	TblCurrency insert(TblCurrency dbModel)  throws JsonProcessingException;
+	TblCurrency insert(TblCurrency dbModel)  throws IOException;
 
-    TblCurrency update(TblCurrency dbModel)  throws JsonProcessingException;
+    TblCurrency update(TblCurrency dbModel)  throws IOException;
     
-    TblCurrency updateExcludeNull(TblCurrency dbModel)  throws JsonProcessingException;
+    TblCurrency updateExcludeNull(TblCurrency dbModel)  throws IOException;
 
-    TblCurrency delete(TblCurrency dbModel)  throws JsonProcessingException;
+    TblCurrency delete(TblCurrency dbModel)  throws IOException;
 
     TblCurrency selectById(Long id);
     

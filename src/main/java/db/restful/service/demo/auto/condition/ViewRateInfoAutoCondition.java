@@ -13,7 +13,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class TblRateInfoAutoCondition implements Serializable{
+public class ViewRateInfoAutoCondition implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 
@@ -432,6 +432,150 @@ public class TblRateInfoAutoCondition implements Serializable{
 	public String updateTimeStrNotEndingWith;
 
 	public String updateTimeStrNotLike;
+
+	public String publicationDate;
+
+	public String publicationDateNotEquals;
+
+	public String publicationDateGreaterThan;
+
+	public String publicationDateGreaterThanAndEqual;
+
+	public String publicationDateLessThan;
+
+	public String publicationDateLessThanAndEqual;
+
+	public boolean publicationDateIsNull=false;
+
+	public boolean publicationDateIsNotNull=false;
+
+	public String publicationDateOrderByDesc="publication_date desc";
+
+	public String publicationDateOrderByAsc="publication_date asc";
+
+	public String publicationDateContaining;
+
+	public String publicationDateStartingWith;
+
+	public String publicationDateEndingWith;
+
+	public String publicationDateLike;
+
+	public String publicationDateNotContaining;
+
+	public String publicationDateNotStartingWith;
+
+	public String publicationDateNotEndingWith;
+
+	public String publicationDateNotLike;
+
+	public String currencyCode;
+
+	public String currencyCodeNotEquals;
+
+	public String currencyCodeGreaterThan;
+
+	public String currencyCodeGreaterThanAndEqual;
+
+	public String currencyCodeLessThan;
+
+	public String currencyCodeLessThanAndEqual;
+
+	public boolean currencyCodeIsNull=false;
+
+	public boolean currencyCodeIsNotNull=false;
+
+	public String currencyCodeOrderByDesc="currency_code desc";
+
+	public String currencyCodeOrderByAsc="currency_code asc";
+
+	public String currencyCodeContaining;
+
+	public String currencyCodeStartingWith;
+
+	public String currencyCodeEndingWith;
+
+	public String currencyCodeLike;
+
+	public String currencyCodeNotContaining;
+
+	public String currencyCodeNotStartingWith;
+
+	public String currencyCodeNotEndingWith;
+
+	public String currencyCodeNotLike;
+
+	public String currencyNameJp;
+
+	public String currencyNameJpNotEquals;
+
+	public String currencyNameJpGreaterThan;
+
+	public String currencyNameJpGreaterThanAndEqual;
+
+	public String currencyNameJpLessThan;
+
+	public String currencyNameJpLessThanAndEqual;
+
+	public boolean currencyNameJpIsNull=false;
+
+	public boolean currencyNameJpIsNotNull=false;
+
+	public String currencyNameJpOrderByDesc="currency_name_jp desc";
+
+	public String currencyNameJpOrderByAsc="currency_name_jp asc";
+
+	public String currencyNameJpContaining;
+
+	public String currencyNameJpStartingWith;
+
+	public String currencyNameJpEndingWith;
+
+	public String currencyNameJpLike;
+
+	public String currencyNameJpNotContaining;
+
+	public String currencyNameJpNotStartingWith;
+
+	public String currencyNameJpNotEndingWith;
+
+	public String currencyNameJpNotLike;
+
+	public String currencyNameEn;
+
+	public String currencyNameEnNotEquals;
+
+	public String currencyNameEnGreaterThan;
+
+	public String currencyNameEnGreaterThanAndEqual;
+
+	public String currencyNameEnLessThan;
+
+	public String currencyNameEnLessThanAndEqual;
+
+	public boolean currencyNameEnIsNull=false;
+
+	public boolean currencyNameEnIsNotNull=false;
+
+	public String currencyNameEnOrderByDesc="currency_name_en desc";
+
+	public String currencyNameEnOrderByAsc="currency_name_en asc";
+
+	public String currencyNameEnContaining;
+
+	public String currencyNameEnStartingWith;
+
+	public String currencyNameEnEndingWith;
+
+	public String currencyNameEnLike;
+
+	public String currencyNameEnNotContaining;
+
+	public String currencyNameEnNotStartingWith;
+
+	public String currencyNameEnNotEndingWith;
+
+	public String currencyNameEnNotLike;
 
 
 
